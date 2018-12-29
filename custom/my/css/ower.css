@@ -1450,7 +1450,7 @@ tr.cart_last_trr td.cart_summ {
 }
 tr.cart_last_trr td.cart_totalr {
     text-align: right;
-    padding: 13px 0 30px;
+    padding: 13px 0 15px;
     font-size: 15px;
     font-weight: normal;
     color: #666666;

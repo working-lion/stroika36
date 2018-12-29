@@ -321,7 +321,7 @@
         width: 100px;
     }*/
     .content {
-        margin-top: 70px;
+        /*margin-top: 70px;*/
         margin-bottom: 30px;
     }
     .header__top_menu {
@@ -683,7 +683,8 @@
         padding: 0;
     }
     .content {
-        margin-top: 80px;
+        /*margin-top: 80px;*/
+        padding-top: 80px;
     }
     .buy_block {
         -moz-flex-wrap: wrap;

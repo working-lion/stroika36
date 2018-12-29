@@ -2,6 +2,8 @@
 .idea/
 adm/
 includes/
-modules/
-!modules/specification
-custom/my/img/
+modules/clauses
+modules/faq
+modules/news
+modules/wishlist
+custom/my/img/git a
