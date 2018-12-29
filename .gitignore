@@ -1,4 +1,3 @@
-.gitignore
 .idea/
 adm/
 includes/
@@ -6,4 +5,4 @@ modules/clauses
 modules/faq
 modules/news
 modules/wishlist
-custom/my/img/git a
+custom/my/img
