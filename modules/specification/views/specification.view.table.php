@@ -116,7 +116,7 @@ if ( !empty($result["rows"])) {
         }  */
 
     //итоговая строка для товаров
-    echo '
+    /*echo '
 		<tr class="cart_last_trr">
 		<td class="empty">';
 
@@ -134,7 +134,7 @@ if ( !empty($result["rows"])) {
 
     echo '</td>';
 
-    echo '</tr>';
+    echo '</tr>';*/
 
     $count_clm = 0;
     if ( !empty($result["discount"])) {
@@ -189,5 +189,6 @@ echo '
 		</td>';
 
 echo '
-	</tr></tbody>
+	</tr>
+	</tbody>
 </table>';
