@@ -1,0 +1,7 @@
+.gitignore
+.idea/
+adm/
+includes/
+modules/
+!modules/specification
+custom/my/img/

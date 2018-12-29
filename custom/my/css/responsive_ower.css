@@ -1,0 +1,302 @@
+@media (max-width: 1169px) and (min-width: 320px) {
+    div#modal_form3 {
+        height: auto;
+        margin-top: 0;
+    }
+    div#modal_form, .moda, div#modal_form2, div#modal_form3 {
+        height: auto;
+        max-height: 100%;
+    }
+    .moda h3 {
+        margin-bottom: 20px;
+    }
+    table.cart thead tr th.cart_name {
+        width: 56%;
+    }
+}
+@media (max-width: 1024px) and (min-width: 320px) {
+    .registration_form,
+    .reminding_form {
+        width: 100%;
+    }
+}
+@media (max-width: 865px) and (min-width: 320px) {
+
+    .coupon_block {
+        position: static;
+    }
+    .shop_block_coupon input[type="text"] {
+        width: 48%;
+    }
+    .shop_form_coup {
+        display: block;
+    }
+    span.shop_block_coupon__text {
+        display: block;
+        margin-bottom: 10px;
+    }
+    tr.cart_last_trr td.cart_summ:after {
+        width: 70%;
+    }
+    table.cart.resulya tr.cart_last_trr td.cart_summ {
+        display: none;
+    }
+    td.cart_summ, .cart_summa {
+        font-size: 16px;
+    }
+    .coupon_block {
+        width: 100%;
+    }
+    td.wishlist_price, .wish_price {
+        display: none;
+    }
+    table.wishlist tr th.wish_remove {
+        font-size: 0;
+    }
+    .wishlist_buy input[type="button"] {
+        padding: 10px 15px;
+        font-size: 13px;
+    }
+    table.wishlist tbody tr td.wishlist_count input.number {
+        font-size: 16px;
+    }
+    .sty.hide {
+        font-size: 16px;
+        display: block;
+    }
+    .shop_compare_description__caption {
+        padding: 5px;
+        font-size: 13px;
+        line-height: 1.2;
+    }
+    .shop_compare_list .shop {
+        margin: 0;
+    }
+    form.shop_compare_form input.btn {
+        margin-bottom: 20px;
+    }
+    .shop_compare_list .right_bl .shop-item:nth-child(even) {
+        margin-right: 0;
+    }
+    table.user_order td:first-child, table.user_order th:first-child {
+        width: auto;
+    }
+}
+@media (max-width: 820px) and (min-width: 320px) {
+    .news_list .news.block, .clauses_list .block {
+        flex-wrap: wrap;
+        padding: 15px;
+    }
+    a.news_list_block__url, a.claus_list_block__url {
+        width: 100%;
+        margin-right: 0;
+        margin-bottom: 10px;
+        height: 100px;
+    }
+    a.news_list_block__name, .claus_list_block__name {
+        white-space: normal;
+        height: auto;
+        text-overflow: clip;
+    }
+    .news_list .block-text, .clauses_list .block-text {
+        width: 100%;
+    }
+}
+/********************* sred *******************/
+@media (max-width: 668px) and (min-width: 320px) {
+    .pay_may select {
+        width: 100%;
+    }
+    th.cart_additional_title, th.cart_delivery_title, .content .cart_form h2 {
+        font-size: 18px;
+        padding: 5px 0px;
+    }
+    .cart_additional_cost_name {
+        font-size: 14px;
+    }
+    .cart_payment_text, .cart_additional_cost_text, .cart_delivery_text {
+        font-size: 13px;
+        line-height: 1.25;
+    }
+    .reviews_form {
+        width: 100%;
+    }
+    .faq.block {
+        padding: 4%;
+    }
+    .faq_question:before {
+        right: -2%;
+    }
+    tr.cart_last_trr ~ tr td.cart_summ {
+        font-size: 13px;
+    }
+    .cart tbody tr td.cart_count .cart_count_minus, .cart tbody tr td.cart_count .cart_count_plus {
+        display: none;
+    }
+    .cart tbody tr td.cart_count input.number {
+        font-size: 14px;
+        border: 1px solid #ccc;
+    }
+    .cart tbody tr td, .cart tbody tr td.cart_additional {
+        font-size: 13px;
+    }
+    .car_img {
+        display: none;
+    }
+    td.cart_summ, .cart_summa {
+        line-height: 13px;
+        font-size: 13px;
+    }
+    .left_block, .righ_block {
+        width: 100%;
+        margin-right: 0;
+    }
+    .cart_form h2 {
+        font-size: 16px;
+    }
+    .shop_block_coupon input[type="submit"] {
+        padding: 10px 2%;
+    }
+    tr.cart_last_trr td.cart_totalr {
+        line-height: 1;
+    }
+    table.cart thead tr th, .cart tbody tr td.cart_name a, td.cart_delivery .cart_delivery_text, span.title_sum {
+        font-size: 13px;
+        line-height: 1.2;
+    }
+    .cart tbody tr td {
+        padding: 5px 0;
+    }
+    table.cart thead tr th.cart_count {
+        width: 43%;
+    }
+    table.cart thead tr th.cart_name {
+        width: 50%;
+    }
+    table.cart thead tr th {
+        padding: 0 0 5px 0;
+    }
+    th.cart_summ {
+        width: 49%;
+    }
+    span.shop_block_coupon__name {
+        display: block;
+        margin-bottom: 10px;
+    }
+    .shop_block_coupon input[type="text"] {
+        margin-left: 0;
+    }
+    form.registration_form .infofield,
+    form.usersettings_form .infofield,
+    form.reminding_form .infofield {
+        margin-right: 0;
+        width: 100%;
+        padding: 0 0 0 10px;
+    }
+    .registration_form input[type="text"],
+    .registration_form input[type="email"],
+    .reminding_form input[type="email"],
+    .registration_form input[type="tel"],
+    .registration_form input[type="password"],
+    .registration_form input[type="file"],
+    .registration_form select,
+    .registration_form textarea,
+    .captcha .captcha-data,
+    .usersettings_form [type="text"],
+    .usersettings_form [type="tel"],
+    .usersettings_form [type="email"],
+    .usersettings_form [type="password"],
+    .usersettings_form [type="file"],
+    .usersettings_form textarea {
+        width: 100%;
+        margin: 5px 0 10px;
+    }
+    .registration_form, .usersettings_form, .reminding_form {
+        width: 100%;
+    }
+    .rega {
+        font-size: 13px;
+    }
+    .moda .blocha_vh a.arrow-link.black {
+        margin-left: 0;
+        margin-top: 7px;
+    }
+    form.usersettings_form .infofield, form.reminding_form .infofield {
+        font-size: 13px;
+        line-height: 18px;
+    }
+    .usersettings_form input[type="submit"], .registration_form input[type="submit"], .reminding_form input[type="submit"] {
+        width: auto;
+        margin-top: 10px;
+    }
+    div#modal_form, .moda, div#modal_form2, div#modal_form3 {
+        padding: 10%;
+    }
+    h1, .header_block {
+        font-size: 24px;
+    }
+    .header_block:after, .text_bl h1:after {
+        top: 14px;
+    }
+    .nom, .pric {
+        display: none;
+    }
+    .balance_block .balance__btn {
+    }
+    th.date_zak {
+        width: 13%;
+    }
+    table.user_order td.date_zak {
+        padding: 0;
+        word-wrap: break-word;
+    }
+    .sum {
+        width: 24%;
+    }
+    .cnt_bl p, .cnt_bl li, table.user_order td {
+        font-size: 13px;
+        line-height: 18px;
+    }
+    table.user_order td {
+        padding: 5px;
+    }
+    .cnt_bl table.user_order ol {
+        margin-left: 15px;
+    }
+    th.tovars {
+        width: 35%;
+    }
+    table.user_order th {
+        padding: 5px;
+        font-size: 13px;
+    }
+    .balance_form__left {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+    form.balance_form input[type="submit"] {
+        margin-left: 0;
+        padding: 13px 14px 12px;
+        font-size: 13px;
+    }
+    .block_lefa {
+        width: 100%;
+        margin-right: 0;
+        margin-bottom: 30px;
+    }
+    .mapa {
+        width: 100%;
+        margin-top: 0;
+    }
+}
+@media (max-width: 420px) and (min-width: 320px) {
+    .content .block_header {
+        font-size: 20px;
+        margin-bottom: 10px;
+        font-weight: 600;
+    }
+    h1, .header_block, .content h2, .content .h2 {
+        font-size: 22px;
+    }
+
+}
