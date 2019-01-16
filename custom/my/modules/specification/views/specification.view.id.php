@@ -23,9 +23,9 @@ if ( !defined('DIAFAN')) {
 
 echo '<div class="specification_id">';
 
-echo '<pre>';
+/*echo '<pre>';
     print_r($_SESSION);
-echo '</pre>';
+echo '</pre>';*/
 
 if ($this->diafan->_users->id) {
 
