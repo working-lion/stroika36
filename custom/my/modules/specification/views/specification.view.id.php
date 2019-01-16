@@ -23,10 +23,6 @@ if ( !defined('DIAFAN')) {
 
 echo '<div class="specification_id">';
 
-/*echo '<pre>';
-    print_r($_SESSION);
-echo '</pre>';*/
-
 if ($this->diafan->_users->id) {
 
     if ($result["date"]) {
