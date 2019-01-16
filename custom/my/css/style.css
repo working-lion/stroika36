@@ -2114,6 +2114,9 @@ td.suppliers_link a:hover {
 /*** Список категорий ***/
 .shop-pane {
     display: block;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
     width: 100%;
     /*border-top: 1px solid #61493f;*/
     /*padding-top: 15px;*/
@@ -2387,6 +2390,16 @@ td.suppliers_link a:hover {
 }
 .specification_all_link {
     margin-top: 20px;
+}
+.spec_form_container {
+    position: relative;
+    margin-bottom: 20px;
+}
+.spec_form_container .errors.error.error_message {
+    position: static;
+}
+.spec_btn_block a {
+    margin-right: 10px;
 }
 
 /*** specifications - end ***/

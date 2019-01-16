@@ -66,6 +66,7 @@ class Cart_inc extends Diafan
 		{
 			return $this->cart;
 		}
+
 		if(empty($this->cart[$id]))
 		{
 			return false;
@@ -160,6 +161,14 @@ class Cart_inc extends Diafan
 			$this->cart = $value;
 			return;
 		}
+
+		$_SESSION["func_cart_set"] = array(
+		    '$value' => $value,
+		    '$id' => $id,
+		    '$param' => $param,
+		    '$additional_cost' => $additional_cost,
+		    '$name_info' => $name_info,
+        );
 
 		if($param === false)
 		{

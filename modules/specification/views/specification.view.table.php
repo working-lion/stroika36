@@ -22,40 +22,38 @@ if ( !defined('DIAFAN')) {
     include $path . '/includes/404.php';
 }
 
+//товары
+if ( !empty($result["rows"])) {
+
 //шапка таблицы
-echo '<table class="cart">
+    echo '<table class="cart">
 	<thead>
 	<tr>		
 		<th class="cart_name">' . $this->diafan->_('Наименование товара') . '</th>';
-if ( !empty($result["measure_unit"])) {
-    echo '<th class="cart_measure_unit">' . $this->diafan->_('Ед. изм-ия') . '</th>';
-}
-echo '<th class="cart_count">' . $this->diafan->_('Кол-во') . '</th>
+    if ( !empty($result["measure_unit"])) {
+        echo '<th class="cart_measure_unit">' . $this->diafan->_('Ед. изм-ия') . '</th>';
+    }
+    echo '<th class="cart_count">' . $this->diafan->_('Кол-во') . '</th>
 		<th class="cart_price">' . $this->diafan->_('Цена') . '</th>';
-if ($result["discount"]) {
-    echo '<th class="cart_old_price">' . $this->diafan->_('Цена со скидкой') . '</th>';
-    echo '<th class="cart_discount">' . $this->diafan->_('Скидка') . '</th>';
-}
-echo '<th class="cart_summ">' . $this->diafan->_('Сумма') . '</th>';
-if (empty($result["hide_form"])) {
-    echo '<th class="cart_remove">' . $this->diafan->_('Удалить') . '</th>';
-}
-echo '
+    if ($result["discount"]) {
+        echo '<th class="cart_old_price">' . $this->diafan->_('Цена со скидкой') . '</th>';
+        echo '<th class="cart_discount">' . $this->diafan->_('Скидка') . '</th>';
+    }
+    echo '<th class="cart_summ">' . $this->diafan->_('Сумма') . '</th>';
+    if (0 && empty($result["hide_form"])) {
+        echo '<th class="cart_remove">' . $this->diafan->_('Удалить') . '</th>';
+    }
+    echo '
 	</tr></thead><tbody>';
-//товары
-if ( !empty($result["rows"])) {
     foreach ($result["rows"] as $row) {
         echo '
-		<tr>
-			
+		<tr>			
 			<td class="cart_name">';
         echo '<div class="car_img">';
         if ( !empty($row["img"])) {
             echo '<a href="' . BASE_PATH_HREF . $row["link"] . '"><img src="' . $row["img"]["src"] . '" width="' . $row["img"]["width"] . '" height="' . $row["img"]["height"] . '" alt="' . $row["img"]["alt"] . '" title="' . $row["img"]["title"] . '"></a> ';
         }
         echo '</div>';
-        /* echo '<a href="'.BASE_PATH_HREF.$row["link"].'">'.$row["name"];
-        echo '</a>'; */
         echo '<a href="' . BASE_PATH_HREF . $row["link"] . '">' . $row["name_only"];
         echo '</a>';
         if ($row["additional_cost"]) {
@@ -71,23 +69,33 @@ if ( !empty($result["rows"])) {
         }
         echo '</td>';
         if ( !empty($result["measure_unit"])) {
-            echo '<td class="cart_measure_unit">' . ($row["measure_unit"] ? $row["measure_unit"]: $this->diafan->_('шт.')) . '</td>';
+            echo '<td class="cart_measure_unit">' . ($row["measure_unit"] ? $row["measure_unit"] : $this->diafan->_('шт.')) . '</td>';
         }
-        echo '
-			<td class="js_cart_count cart_count"><nobr>' . (empty($result["hide_form"]) ? ' <span class="js_cart_count_minus cart_count_minus">-</span> <input type="text" class="number" value="' . $row["count"] . '" min="0" name="editshop' . $row["id"] . '" size="2"> <span class="js_cart_count_plus cart_count_plus">+</span> ': $row["count"]) . '</nobr></td>';
+
+        /*
+         * TODO: реализовать изменение количества товара
+         * */
+        //echo '
+        //	<td class="js_cart_count cart_count"><nobr>' . (empty($result["hide_form"]) ? ' <span
+        // class="js_cart_count_minus cart_count_minus">-</span> <input type="text" class="number" value="' .
+        //$row["count"] . '" min="0" name="editshop' . $row["id"] . '" size="2"> <span class="js_cart_count_plus
+        // cart_count_plus">+</span> ' : $row["count"]) . '</nobr></td>';
+
+        echo '<td class="cart_count">' . $row["count"] . '</td>';
+
         $col = 4;
         if ($result["discount"]) {
 
             $col++;
-            echo '<td class="cart_old_price">' . ($row["old_price"] ? $row["old_price"]: $row["price"]) . ' <span class="cur">' . $result["currency"] . '</span></td>';
-            echo '<td class="cart_price">' . ($row["old_price"] ? $row["price"] . ' <span class="cur">' . $result["currency"] . '</span>': '') . '</td>';
-            echo '<td class="cart_discount">' . ($row["discount"] ? $row["discount"] . ' <span class="cur">' . $result["currency"] . '</span>': '') . '</td>';
+            echo '<td class="cart_old_price">' . ($row["old_price"] ? $row["old_price"] : $row["price"]) . ' <span class="cur">' . $result["currency"] . '</span></td>';
+            echo '<td class="cart_price">' . ($row["old_price"] ? $row["price"] . ' <span class="cur">' . $result["currency"] . '</span>' : '') . '</td>';
+            echo '<td class="cart_discount">' . ($row["discount"] ? $row["discount"] . ' <span class="cur">' . $result["currency"] . '</span>' : '') . '</td>';
         } else {
             echo '<td class="cart_price">' . $row["price"] . ' <span class="cur">' . $result["currency"] . '</span></td>';
         }
         echo '
 			<td class="cart_summ">' . $row["summ"] . ' <span class="cur">' . $result["currency"] . '</span></td>
-			' . (empty($result["hide_form"]) ? '<td class="cart_remove"><span class="js_cart_remove" confirm=""><input type="hidden" id="del' . $row["id"] . '" name="del' . $row["id"] . '" value="0"></span></td>': '') . '
+			' . (0 && empty($result["hide_form"]) ? '<td class="cart_remove"><span class="js_cart_remove" confirm=""><input type="hidden" id="del' . $row["id"] . '" name="del' . $row["id"] . '" value="0"></span></td>' : '') . '
 		</tr>';
     }
 
@@ -161,25 +169,24 @@ if ( !empty($result["rows"])) {
 			<tr>
 				<td class="cart_additional" colspan="' . ($count_clm) . '">
 					<div class="cart_additional_cost_name">' . $row["name"] . '</div>
-					' . (empty($result["hide_form"]) ? '<div class="cart_additional_cost_text">' . $row['text'] . '</div>': '') . '
-					<div class="cart_additional__price">' . $this->diafan->_('Стоимость') . ' ' . ($row['percent'] ? $row['percent'] . '%': $row["price"] . '<span class="cur"> ' . $result["currency"] . '</span>') . '</div>
+					' . (empty($result["hide_form"]) ? '<div class="cart_additional_cost_text">' . $row['text'] . '</div>' : '') . '
+					<div class="cart_additional__price">' . $this->diafan->_('Стоимость') . ' ' . ($row['percent'] ? $row['percent'] . '%' : $row["price"] . '<span class="cur"> ' . $result["currency"] . '</span>') . '</div>
 				</td>';
             //<td class="cart_price">'.($row['percent'] ? $row['percent'].'%' : $row["price"].'<span class="cur"> '.$result["currency"].'</span>').'</td>
             echo '<td class="cart_summ">' . $row["summ"] . ' <span class="cur"> ' . $result["currency"] . '</span></td>
-				' . (empty($result["hide_form"]) ? '<td class="cart_check">': '');
+				' . (empty($result["hide_form"]) ? '<td class="cart_check">' : '');
             if ( !$row["required"] && empty($result["hide_form"])) {
                 echo '<input name="additional_cost_ids[]" id="additional_cost_' . $row['id'] . '" value="' . $row['id'] . '" type="checkbox" ' . (in_array($row["id"],
-                        $result["cart_additional_cost"]) ? ' checked': '') . '><label for="additional_cost_' . $row['id'] . '">&nbsp;</label>';
+                        $result["cart_additional_cost"]) ? ' checked' : '') . '><label for="additional_cost_' . $row['id'] . '">&nbsp;</label>';
             }
-            echo (empty($result["hide_form"]) ? '</td>': '') . '
+            echo (empty($result["hide_form"]) ? '</td>' : '') . '
 			</tr>';
         }
     }
-}
 
 
 //итоговая строка таблицы
-echo '
+    echo '
 	<tr class="cart_last_trr">
 	<td class="empty"></td>
 		<td class="cart_totalr" colspan="' . $col . '">
@@ -188,7 +195,9 @@ echo '
             </span>
 		</td>';
 
-echo '
+    echo '
 	</tr>
 	</tbody>
 </table>';
+
+}

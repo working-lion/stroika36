@@ -22,16 +22,16 @@ if ( !defined('DIAFAN')) {
     include $path . '/includes/404.php';
 }
 
-/*echo '<pre>';
-    print_r($result);
-echo '</pre>';*/
-
 if($this->diafan->_users->id) {
 
     echo '<div class="cart_btn_block">'
         . '<a href="" class="btn js-form-link" data-target-form="add-specification">' . $this->diafan->_('Сохранить в спецификацию') . '</a>'
         . '</div>';
 }
+
+echo '<pre>';
+print_r($_SESSION);
+echo '</pre>';
 
 //шапка таблицы
 echo '<table class="cart">

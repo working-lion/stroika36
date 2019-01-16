@@ -38,7 +38,9 @@ class Cart extends Controller
 	 */
 	public function init()
 	{
-		if ($this->diafan->configmodules('not_buy', 'shop') || ($this->diafan->configmodules('security_user', 'shop') && ! $this->diafan->_users->id))
+		if ($this->diafan->configmodules('not_buy', 'shop') 
+                || ($this->diafan->configmodules('security_user', 'shop') 
+                && ! $this->diafan->_users->id))
 			return false;
 
 		if (empty($this->diafan->_route->step))

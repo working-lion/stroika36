@@ -398,10 +398,10 @@ class Specification_model extends Model
                 }
             }
         }
-        else
+        /*else
         {
             $_SESSION["specification"] = $this->specification;
-        }
+        }*/
     }
 
     /**
@@ -414,6 +414,7 @@ class Specification_model extends Model
         $summ = 0;
         $summ_discount = 0;
         $count = 0;
+
         foreach ($this->specification as $good_id => $array)
         {
             foreach ($array as $param => $as)
@@ -616,7 +617,6 @@ class Specification_model extends Model
                     }
 
                     $price = $row_price["price"];
-                    //$discount_price = $row_price["discount_summ"];
 
                     $this->result["rows"][$k]["link"] .= !empty($query) ? '?'.implode('&', $query) : '';
                     $this->result["rows"][$k]["count"] = $c["count"];

@@ -16,7 +16,7 @@ class Specification_action extends Action
      *
      * @return void
      */
-    public function init()
+    public function add()
     {
         // в обработчике форм узазаны имена p#
         $name = $_POST['p111111'];
@@ -56,6 +56,122 @@ class Specification_action extends Action
         }
         $this->result["result"] = "success";
         $this->result["redirect"] = '/specifications/show' . $specification_id . '/';
+    }
+
+    /**
+     * Обрабатывает запрос на удаление спецификации
+     *
+     * @return void
+     */
+    public function remove() {
+        if(!$this->diafan->_users->id) {
+            $this->result["errors"][0] = 'Для удаления спецификации необходимо авторизоваться.';
+        }
+        if ($this->result())
+            return;
+
+        $this->check_site_id();
+        if ($this->result())
+            return;
+
+        if(!empty($_POST["specification_id"]) && $_POST["specification_id"] >= 0) {
+            $specification_id = $_POST["specification_id"];
+
+            $row = DB::query_fetch_all(
+                "SELECT id FROM {specifications}"
+                . " WHERE id='%d' LIMIT 1",
+                $specification_id);
+
+            if(!$row) {
+                $this->result["errors"][0] = 'Спецификация не найдена. Обратитесь к администратору сайта.';
+                $this->result["result"] = "success";
+                return;
+            }
+            else {
+                // удаляем данные о товарах
+                DB::query("DELETE FROM {specifications_goods} WHERE specification_id='%d'", $specification_id);
+
+                // удаляем данные о спецификации
+                DB::query("DELETE FROM {specifications} WHERE id='%d'", $specification_id);
+
+                $this->result["result"] = "success";
+                $this->result["redirect"] = '/specifications/';
+            }
+        }
+        else {
+            $this->result["errors"][0] = 'Спецификация не найдена. Обратитесь к администратору сайта.';
+            $this->result["result"] = "success";
+        }
+    }
+
+    /**
+     * Обрабатывает запрос на перенос спецификации в коризину
+     *
+     * @return void
+     */
+    public function push() {
+        if(!$this->diafan->_users->id) {
+            $this->result["errors"][0] = 'Для переноса спецификации в корзину необходимо авторизоваться.';
+        }
+        if ($this->result())
+            return;
+
+        $this->check_site_id();
+        if ($this->result())
+            return;
+
+        if(!empty($_POST["specification_id"]) && $_POST["specification_id"] >= 0) {
+            $specification_id = $_POST["specification_id"];
+
+            $row = DB::query_fetch_all(
+                "SELECT id FROM {specifications}"
+                . " WHERE id='%d' LIMIT 1",
+                $specification_id);
+
+            if(!$row) {
+                $this->result["errors"][0] = 'Спецификация не найдена. Обратитесь к администратору сайта.';
+                $this->result["result"] = "success";
+                return;
+            }
+            else {
+                // получаем данные о товарах в спецификации
+                $rows = DB::query_fetch_all(
+                    "SELECT * FROM {specifications_goods}"
+                    . " WHERE specification_id='%d'",
+                    $specification_id);
+
+                if($rows) {
+
+                    // очищаем корзину (https://www.diafan.ru/docs/manual_DIAFAN.CMS_5.4.pdf стр. 151)
+                    $this->diafan->_cart->set();
+                    // записываем данные, установленные функцией set()
+                    $this->diafan->_cart->write();
+
+                    foreach ($rows as $row) {
+                        if($row["id"]){
+                            //$this->diafan->_cart->set(0, $row["id"], false, false, 'count');
+                            $value = array(
+                                'count' => 3,
+                                'is_file' => false,
+                            );
+
+                            $this->diafan->_cart->set($value, $row["id"], array());
+                        }
+                    }
+
+                    $this->diafan->_cart->write();
+
+                    $this->result["result"] = "success";
+                    $this->result["redirect"] = '/shop/cart/';
+
+                }
+            }
+        }
+        else {
+            $this->result["errors"][0] = 'Спецификация не найдена. Обратитесь к администратору сайта.';
+            $this->result["result"] = "success";
+            return;
+        }
     }
 
     /**

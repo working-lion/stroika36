@@ -69,6 +69,8 @@ class Cart_model extends Model
 		// корзина
 		$cart = $this->diafan->_cart->get();
 
+        $_SESSION['$cart'] = $cart;
+
 		if (! $cart)
 		{
 			$this->result["shop_link"] = $this->diafan->_route->module('shop');

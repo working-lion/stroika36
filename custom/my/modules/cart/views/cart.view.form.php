@@ -35,7 +35,9 @@ echo '<form action="" method="POST" class="js_cart_table_form cart_table_form aj
 <input type="hidden" name="form_tag" value="'.$result["form_tag"].'">
 <div class="errors error"'.($result["error"] ? '>'.$result["error"] : ' style="display:none">').'</div>
 <div class="cart_table">';
+
 echo $this->get('table', 'cart', $result); //вывод таблицы с товарами
+
 echo '</div>';
 echo '<div class="cart_recalc">';
 // кнопка пересчитать

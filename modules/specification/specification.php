@@ -50,5 +50,28 @@ class Specification extends Controller
         }
     }
 
+    /**
+     * Обрабатывает полученные данные из формы
+     *
+     * @return void
+     */
+    public function action()
+    {
+        if(! empty($_POST["action"]))
+        {
+            switch($_POST["action"])
+            {
+                case 'add':
+                    return $this->action->add();
+
+                case 'remove':
+                    return $this->action->remove();
+
+                case 'push':
+                    return $this->action->push();
+            }
+        }
+    }
+
 
 }

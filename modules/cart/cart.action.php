@@ -31,6 +31,7 @@ class Cart_action extends Action
 	public function recalc()
 	{
 		$cart = $this->diafan->_cart->get();
+
 		$newcount = 0;
 		if ($cart)
 		{
